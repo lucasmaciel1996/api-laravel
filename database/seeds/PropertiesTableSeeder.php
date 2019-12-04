@@ -18,7 +18,7 @@ class PropertiesTableSeeder extends Seeder
                 'local_lng'=>'-49.2848293',
                 'total_peca' => 20+$c,
                 'ligado' => 0,
-                'device_id'=> 1,
+                'devices_id'=> 1,
             ]);
         }
     }

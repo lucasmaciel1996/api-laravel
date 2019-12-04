@@ -19,8 +19,9 @@ class CreatePropertiesTable extends Migration
             $table->string('local_lng');
             $table->integer('total_peca');
             $table->boolean('ligado');
-            $table->unsignedBigInteger('device_id');
-            $table->foreign('device_id')->references('id')->on('devices')->onDelete('cascade');
+            $table->unsignedBigInteger('devices_id');
+            $table->foreign('devices_id')->references('id')->on('devices')->onDelete('cascade');
+            $table->boolean('ativo')->default(1);
             $table->timestamps();
         });
     }
@@ -33,7 +34,7 @@ class CreatePropertiesTable extends Migration
     public function down()
     {
         Schema::table('properties', function (Blueprint $table) {
-            $table->dropForeign(['device_id']);
+            $table->dropForeign(['devices_id']);
         });
         Schema::dropIfExists('properties');
     }
