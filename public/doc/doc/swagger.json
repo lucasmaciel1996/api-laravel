@@ -1,0 +1,347 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Documentação de integração sistema [QMonitor](https://api.apresentacao.qclass.com.br)\n",
+    "version": "1.0.5",
+    "title": "QMonitor",
+    "termsOfService": "http://api.apresentacao.qclass.com.br/terms/",
+    "contact": {
+      "name": "desenvolvimento@quadritech.com.br"
+    }
+  },
+  "host": "web.qclass.com.br",
+  "schemes": [
+    "http"
+  ],
+  "security": [
+    {
+      "internalApiKey": []
+    }
+  ],
+  "securityDefinitions": {
+    "internalApiKey": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "api-key",
+      "description":"API KEY"
+    }
+  },
+  "paths": {
+    "/devices": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "Retorna todos os devices",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "operationId": "getDevices",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Devices"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Device não encontrado"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "Adiciona um novo devices",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "description": "",
+        "operationId": "createdevices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de devices que precisa ser adicionado",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Devices"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devices inserido com sucesso"
+          },
+          "405": {
+            "description": "Entrada inválida"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "veiculo"
+        ],
+        "summary": "Atualiza um devices existente",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "description": "",
+        "operationId": "updateDevices",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Devices a ser atualizado",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Devices"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Devices não encontrado"
+          },
+          "405": {
+            "description": "Problema na validação"
+          }
+        }
+      }
+    },
+    "/device/{id}/properties": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "Encontra properties devices pelo od",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "operationId": "getDevicesByid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id que deseja ser encontrada",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Devices"
+            }
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Veículo não encontrado"
+          }
+        }
+      }
+    },
+    "/instrutores": {
+      "get": {
+        "tags": [
+          "properties"
+        ],
+        "summary": "Retorna todos os properties",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "operationId": "getproperties",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de properties encontrados",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Properties"
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Properties não encontrado"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "properties"
+        ],
+        "summary": "Adiciona um novo properties",
+        "description": "",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "operationId": "createproperties",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de properties que precisa ser adicionado",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/properties"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Properties inserido com sucesso"
+          },
+          "405": {
+            "description": "Entrada inválida"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "properties"
+        ],
+        "summary": "Atualiza um properties existente",
+        "security": [
+          {
+            "internalApiKey": []
+          }
+        ],
+        "description": "",
+        "operationId": "updateproperties",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Properties"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "properties não encontrado"
+          },
+          "405": {
+            "description": "Problema na validação"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Devices": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key_id": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        }
+      }
+    },
+    "Properties": {
+      "type": "object",
+      "required": [
+        "devices_id",
+        "local_lat",
+        "local_lng",
+        "total_peca",
+        "ligado"
+      ],
+      "properties": {
+        "devices_id": {
+          "type": "string",
+          "example": "5d4deaaa40de3b6cf22367f6bc84790f"
+        },
+        "local_lat": {
+          "type": "string",
+          "example": "-79.0000"
+        },
+        "local_lng": {
+            "type": "string",
+            "example": "-45.0000"
+        },
+        "total_peca": {
+            "type": "string",
+            "example": "2"
+        },
+        "ligado": {
+            "type": "boolead",
+            "example": "1"
+        }
+      }
+    }
+  }
+}
