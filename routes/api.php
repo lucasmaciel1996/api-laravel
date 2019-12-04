@@ -18,7 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('devices','DevicesController@index');
-Route::get('devices/{id}','DevicesController@show');
-Route::post('devices/','DevicesController@store');
-Route::put('devices/{id}','DevicesController@update');
-Route::delete('devices/{id}','DevicesController@delete');
+Route::get('device/{id}','DevicesController@show');
+Route::get('device/{id}/properties','DevicesController@properties');
+Route::post('device/','DevicesController@store');
+Route::put('device/{id}','DevicesController@update');
+Route::delete('device/{id}','DevicesController@delete');
+
+Route::get('properties','PropertiesController@index');
+Route::get('propertie/{id}','PropertiesController@show');
+Route::post('propertie/','PropertiesController@store');
+Route::put('propertie/{id}','PropertiesController@update');
+Route::delete('propertie/{id}','PropertiesController@delete');

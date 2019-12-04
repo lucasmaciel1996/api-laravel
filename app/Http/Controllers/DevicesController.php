@@ -15,7 +15,10 @@ class DevicesController extends Controller
     {
         return Devices::find($id);
     }
-
+    public function properties($id)
+    {
+      return Devices::find($id)->properties()->get();
+    }
     public function store(Request $request)
     {
         $device = Devices::create($request->all());
