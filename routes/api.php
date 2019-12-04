@@ -26,6 +26,6 @@ Route::delete('device/{id}','DevicesController@delete');
 
 Route::get('properties','PropertiesController@index');
 Route::get('propertie/{id}','PropertiesController@show');
-Route::post('propertie/','PropertiesController@store');
+Route::post('propertie','PropertiesController@store');
 Route::put('propertie/{id}','PropertiesController@update');
 Route::delete('propertie/{id}','PropertiesController@delete');

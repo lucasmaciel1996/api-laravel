@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Documentação de integração sistema [QMonitor](https://api.apresentacao.qclass.com.br)\n",
+    "description": "Documentação de integração sistema [QMonitor](http://api.apresentacao.qclass.com.br)\n",
     "version": "1.0.5",
     "title": "QMonitor",
     "termsOfService": "http://api.apresentacao.qclass.com.br/terms/",
@@ -9,7 +9,7 @@
       "name": "desenvolvimento@quadritech.com.br"
     }
   },
-  "host": "web.qclass.com.br",
+  "host": "http://api.apresentacao.qclass.com.br",
   "schemes": [
     "http"
   ],
